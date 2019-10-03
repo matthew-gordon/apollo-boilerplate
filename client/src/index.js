@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider, useQuery } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker'
 import configureClient from './client'
 import Pages from './pages'
 
