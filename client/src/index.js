@@ -1,11 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ApolloProvider } from '@apollo/react-hooks'
+import { ApolloProvider, useQuery } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
 import * as serviceWorker from './serviceWorker';
 import configureClient from './client'
-import App from './components/App'
+import Pages from './pages'
 
 const client = configureClient()
+
+export const ME_QUERY = gql`
+  query me {
+    me {
+      id
+      email
+    }
+  }
+`
+
+const App = () => {
+  const { data, loading, error } = useQuery(ME_QUERY)
+
+  if (loading) return <h1>Loading...</h1>
+
+  if (error) return <h1>Error</h1>
+
+  return <Pages currentUser={data.me ? data.me : null} />
+}
 
 ReactDOM.render(
   <ApolloProvider client={client}>

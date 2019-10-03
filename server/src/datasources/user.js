@@ -2,6 +2,7 @@ import uuid from 'uuid/v4'
 import { genSaltSync, hashSync, compareSync } from 'bcryptjs'
 import db from '../db'
 import { createToken } from '../utils'
+import { ApolloError } from '../../node_modules/apollo-server-koa';
 
 async function register({ email, password }) {
   const emailCheck = await db('users').where({ email }).first()
@@ -46,7 +47,25 @@ async function login({ email, password }) {
   }
 }
 
+async function updateUser({ email, currentUser }) {
+  const user = await db('users')
+    .where({ id: currentUser.id })
+    .first()
+
+  if (!user) throw new ApolloError('User does not exist.')
+
+  const [updatedUser] = await db('users')
+    .where({ id: user.id })
+    .update({
+      email,
+    })
+    .returning('*')
+
+  return updatedUser
+}
+
 export default {
   register,
   login,
+  updateUser,
 }

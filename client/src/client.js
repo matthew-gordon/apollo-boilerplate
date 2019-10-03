@@ -6,9 +6,13 @@ import { typeDefs, resolvers } from './resolvers'
 export default function configureClient() {
   const cache = new InMemoryCache()
 
+  const accessToken = localStorage.getItem('accessToken')
+
   const httpLink = new HttpLink({
     uri: 'http://localhost:3000/graphql',
-    headers: {},
+    headers: {
+      'x-access-token': accessToken ? `Bearer ${accessToken}` : '',
+    },
     name: 'app [web]',
     version: '1.0.0',
   })
@@ -22,7 +26,7 @@ export default function configureClient() {
 
   cache.writeData({
     data: {
-      appName: 'Rob\'s awesome apollo hooks app',
+      appName: 'apollo boilerplate',
     },
   });
 

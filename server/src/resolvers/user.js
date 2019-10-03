@@ -13,5 +13,10 @@ export default {
 
       return user ? user : null
     },
+    updateUser: async (_, { email }, { dataSources, currentUser }) => {
+      const user = await dataSources.userAPI.updateUser({ email, currentUser })
+
+      return user ? user : null
+    },
   },
 }
