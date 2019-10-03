@@ -1,6 +1,7 @@
 # apollo-boilerplate
 
-setup and run server first
+setup and run server first, then the client.
+
 ## Server
 
 `$ export DATABASE_URL=postgres://localhost:5432/<db_address>`
@@ -17,7 +18,10 @@ setup and run server first
 
 `$ yarn dev`
 
+server should be running at http://localhost:3000/graphql
+
 then start the client
+
 ## Client
 
 `$ cd client`
@@ -25,3 +29,5 @@ then start the client
 `$ yarn install`
 
 `$ yarn start`
+
+client should be running at http://localhost:3001/
