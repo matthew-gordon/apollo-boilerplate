@@ -13,22 +13,22 @@
   },
   "license": "MIT",
   "dependencies": {
-    "apollo-server-koa": "^2.9.0",
+    "apollo-server-koa": "^2.9.4",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.1.0",
     "jsonwebtoken": "^8.5.1",
     "kcors": "^2.2.2",
     "knex": "^0.19.4",
-    "koa": "^2.8.1",
+    "koa": "^2.8.2",
     "moment": "^2.24.0",
     "pg": "^7.12.1",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/node": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "nodemon": "^1.19.1"
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "nodemon": "^1.19.3"
   }
 }
